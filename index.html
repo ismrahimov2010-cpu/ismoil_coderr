@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="tg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#070b09">
+  <meta name="description" content="Ismoil Coderr — Web Developer in Progress. Портфолиои шахсии ман.">
   <title>Ismoil Coderr | Web Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -28,6 +29,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px;
     }
 
     body {
@@ -47,8 +49,6 @@
       max-width: 1150px;
       margin: auto;
     }
-
-    /* NAVIGATION */
 
     header {
       position: sticky;
@@ -71,9 +71,13 @@
       font-size: 21px;
       font-weight: 800;
       letter-spacing: -1px;
+      white-space: nowrap;
     }
 
-    .logo span {
+    .logo span,
+    h1 span,
+    .section-title span,
+    footer span {
       color: var(--green);
     }
 
@@ -86,8 +90,6 @@
       color: var(--green);
     }
 
-    /* BUTTONS */
-
     .btn {
       display: inline-block;
       padding: 11px 19px;
@@ -97,6 +99,7 @@
       font-weight: 700;
       font-size: 13px;
       transition: .25s;
+      cursor: pointer;
     }
 
     .btn.primary {
@@ -110,16 +113,13 @@
       box-shadow: 0 0 25px #00f5a044;
     }
 
-    /* HERO */
-
     .hero {
       min-height: 540px;
       display: flex;
       align-items: center;
       padding: 60px 0;
       background:
-        linear-gradient(90deg,
-          #070b09 0%,
+        linear-gradient(90deg, #070b09 0%,
           rgba(7,11,9,.94) 35%,
           rgba(7,11,9,.45) 100%),
         url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=85")
@@ -143,10 +143,6 @@
       line-height: 1.12;
       letter-spacing: -3px;
       margin: 18px 0;
-    }
-
-    h1 span {
-      color: var(--green);
     }
 
     .hero p {
@@ -177,8 +173,6 @@
       margin-top: 25px;
     }
 
-    /* SECTIONS */
-
     section {
       padding: 75px 0;
       border-top: 1px solid #13251a;
@@ -191,16 +185,10 @@
       letter-spacing: -1.5px;
     }
 
-    .section-title span {
-      color: var(--green);
-    }
-
     .muted {
       color: var(--muted);
       font-size: 14px;
     }
-
-    /* ABOUT */
 
     .about-grid {
       display: grid;
@@ -227,8 +215,6 @@
       margin-bottom: 12px;
       text-shadow: 0 0 24px #00f5a055;
     }
-
-    /* SKILLS */
 
     .skills-grid {
       display: grid;
@@ -266,8 +252,6 @@
       color: var(--muted);
       font-size: 11px;
     }
-
-    /* PROJECTS */
 
     .projects-grid {
       display: grid;
@@ -317,8 +301,6 @@
       color: var(--green);
     }
 
-    /* CONTACT */
-
     .contact-box {
       padding: 35px 25px;
       text-align: center;
@@ -342,23 +324,13 @@
       font-size: 12px;
     }
 
-    footer span {
-      color: var(--green);
-    }
-
-    /* MOBILE */
-
     @media (max-width: 700px) {
-      .container {
-        width: 90%;
-      }
-
       nav {
         min-height: 65px;
       }
 
       .logo {
-        font-size: 17px;
+        font-size: 16px;
       }
 
       .nav-link {
@@ -414,16 +386,15 @@
       <a class="nav-link" href="#skills">Малакаҳо</a>
       <a class="nav-link" href="#projects">Лоиҳаҳо</a>
 
-      <a class="btn" href="https://instagram.com/ismoil_coder"
-         target="_blank" rel="noopener">
+      <a class="btn"
+         href="https://www.instagram.com/ismoil_coderr/"
+         target="_blank" rel="noopener noreferrer">
         Instagram ↗
       </a>
     </nav>
   </header>
 
   <main>
-
-    <!-- HERO -->
 
     <div class="hero" id="home">
       <div class="container">
@@ -451,8 +422,8 @@
 
           <div class="hero-buttons">
             <a class="btn primary"
-               href="https://instagram.com/ismoil_coderr"
-               target="_blank" rel="noopener">
+               href="https://www.instagram.com/ismoil_coderr/"
+               target="_blank" rel="noopener noreferrer">
               Маро пайгирӣ кун ↗
             </a>
 
@@ -464,8 +435,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ABOUT -->
 
     <section id="about">
       <div class="container about-grid">
@@ -492,9 +461,7 @@
         <div class="about-card">
           <div class="code-symbol">&lt;/&gt;</div>
           <h3>Code. Create. Grow.</h3>
-          <p class="muted">
-            Омӯзиш имрӯз. Маҳорати беҳтар фардо.
-          </p>
+          <p class="muted">Омӯзиш имрӯз. Маҳорати беҳтар фардо.</p>
           <p>📍 Tajikistan</p>
           <p>💻 Web Development</p>
           <p>🚀 Ҳар рӯз пешравӣ</p>
@@ -502,8 +469,6 @@
 
       </div>
     </section>
-
-    <!-- SKILLS -->
 
     <section id="skills">
       <div class="container">
@@ -547,8 +512,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-
     <section id="projects">
       <div class="container">
 
@@ -572,10 +535,7 @@
 
             <div class="project-info">
               <h3>Сайти қаҳвахона</h3>
-              <p>
-                Намунаи сайт барои қаҳвахона бо меню
-                ва маълумоти тамос.
-              </p>
+              <p>Намунаи сайт барои қаҳвахона бо меню ва маълумоти тамос.</p>
               <span class="project-label">HTML · CSS</span>
             </div>
           </article>
@@ -588,10 +548,7 @@
 
             <div class="project-info">
               <h3>Портфолиои шахсӣ</h3>
-              <p>
-                Сомона барои муаррифии малакаҳо
-                ва корҳои барномасоз.
-              </p>
+              <p>Сомона барои муаррифии малакаҳо ва корҳои барномасоз.</p>
               <span class="project-label">HTML · CSS</span>
             </div>
           </article>
@@ -599,15 +556,12 @@
           <article class="project">
             <img
               src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-              alt="Пардохт ва хариди онлайн"
+              alt="Хариди онлайн"
               loading="lazy">
 
             <div class="project-info">
               <h3>Сайти мағоза</h3>
-              <p>
-                Намунаи саҳифа барои намоиши маҳсулот
-                ва хизматрасониҳо.
-              </p>
+              <p>Намунаи саҳифа барои намоиши маҳсулот ва хизматрасониҳо.</p>
               <span class="project-label">HTML · CSS · JS</span>
             </div>
           </article>
@@ -615,8 +569,6 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACT -->
 
     <section id="contact">
       <div class="container">
@@ -634,8 +586,8 @@
           </p>
 
           <a class="btn primary"
-             href="https://instagram.com/ismoil_coderr"
-             target="_blank" rel="noopener">
+             href="https://www.instagram.com/ismoil_coderr/"
+             target="_blank" rel="noopener noreferrer">
             Instagram: @ismoil_coderr ↗
           </a>
 

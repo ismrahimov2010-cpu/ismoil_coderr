@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b09">
+  <title>Ismoil Coder | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070b09;
+      --panel: #0e1712;
+      --green: #00f5a0;
+      --text: #f5fff9;
+      --muted: #a5b5ab;
+      --border: #1b3c2c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 11, 9, .94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-link:hover {
+      color: var(--green);
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-block;
+      padding: 11px 19px;
+      border-radius: 30px;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 13px;
+      transition: .25s;
+    }
+
+    .btn.primary {
+      background: var(--green);
+      color: #06110b;
+      box-shadow: 0 0 24px #00f5a022;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px #00f5a044;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+      background:
+        linear-gradient(90deg,
+          #070b09 0%,
+          rgba(7,11,9,.94) 35%,
+          rgba(7,11,9,.45) 100%),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(38px, 8vw, 70px);
+      line-height: 1.12;
+      letter-spacing: -3px;
+      margin: 18px 0;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: #c0cdc5;
+      max-width: 500px;
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 23px 0;
+    }
+
+    .tag {
+      padding: 5px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 75px 0;
+      border-top: 1px solid #13251a;
+    }
+
+    .section-title {
+      font-size: clamp(27px, 5vw, 40px);
+      line-height: 1.25;
+      margin: 10px 0;
+      letter-spacing: -1.5px;
+    }
+
+    .section-title span {
+      color: var(--green);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #101e15, #0a100c);
+    }
+
+    .about-card p {
+      margin: 10px 0;
+    }
+
+    .code-symbol {
+      color: var(--green);
+      font-size: 46px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-shadow: 0 0 24px #00f5a055;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .skill {
+      text-align: center;
+      padding: 22px 10px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: .25s;
+    }
+
+    .skill:hover {
+      border-color: var(--green);
+      transform: translateY(-5px);
+    }
+
+    .skill .symbol {
+      font-size: 27px;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .skill h3 {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .skill p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project {
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+    }
+
+    .project img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-info {
+      padding: 18px;
+    }
+
+    .project-info h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--green);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      padding: 35px 25px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at top, #103321, transparent 75%),
+        #09100b;
+    }
+
+    .contact-box p {
+      max-width: 500px;
+      margin: 12px auto 23px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer span {
+      color: var(--green);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .container {
+        width: 90%;
+      }
+
+      nav {
+        min-height: 65px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      nav .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 500px;
+        background-position: 58% center;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project img {
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">
+        <span>&lt;/&gt;</span> ismoil_coderr
+      </a>
+
+      <a class="nav-link" href="#about">Дар бораи ман</a>
+      <a class="nav-link" href="#skills">Малакаҳо</a>
+      <a class="nav-link" href="#projects">Лоиҳаҳо</a>
+
+      <a class="btn" href="https://instagram.com/ismoil_coder"
+         target="_blank" rel="noopener">
+        Instagram ↗
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <div class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">Web Developer in Progress</div>
+
+          <h1>
+            Салом, ман<br>
+            <span>Ismoil Coderr</span>
+            ҳастам.
+          </h1>
+
+          <p>
+            Ман сохтани сайтҳои замонавиро меомӯзам.
+            Ҳар рӯз як қадам ба пеш — аз навиштани код
+            то сохтани лоиҳаҳои воқеӣ.
+          </p>
+
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a class="btn primary"
+               href="https://instagram.com/ismoil_coderr"
+               target="_blank" rel="noopener">
+              Маро пайгирӣ кун ↗
+            </a>
+
+            <a class="btn" href="#projects">
+              Дидани лоиҳаҳо
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container about-grid">
+
+        <div>
+          <div class="eyebrow">Дар бораи ман</div>
+
+          <h2 class="section-title">
+            Ман <span>Ismoil</span> ҳастам.
+          </h2>
+
+          <p class="muted">
+            Ман барномасози навкор ҳастам ва Web Development
+            меомӯзам. Мақсадам сохтани сайтҳои зебо,
+            босуръат ва қулай барои телефон аст.
+          </p>
+
+          <p class="muted" style="margin-top:12px">
+            Ин ҷо ман пешрафт, таҷриба ва лоиҳаҳои худро
+            нишон медиҳам.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="code-symbol">&lt;/&gt;</div>
+          <h3>Code. Create. Grow.</h3>
+          <p class="muted">
+            Омӯзиш имрӯз. Маҳорати беҳтар фардо.
+          </p>
+          <p>📍 Tajikistan</p>
+          <p>💻 Web Development</p>
+          <p>🚀 Ҳар рӯз пешравӣ</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <div class="container">
+
+        <div class="eyebrow">Малакаҳо</div>
+        <h2 class="section-title">
+          Технологияҳои <span>ман</span>
+        </h2>
+
+        <p class="muted">
+          Малакаҳои худро тадриҷан такмил медиҳам.
+        </p>
+
+        <div class="skills-grid">
+
+          <div class="skill">
+            <div class="symbol">5</div>
+            <h3>HTML</h3>
+            <p>Сохтори сайт</p>
+          </div>
+
+          <div class="skill">
+            <div class="symbol">3</div>
+            <h3>CSS</h3>
+            <p>Дизайн ва рангҳо</p>
+          </div>
+
+          <div class="skill">
+            <div class="symbol">JS</div>
+            <h3>JavaScript</h3>
+            <p>Функсияҳои сайт</p>
+          </div>
+
+          <div class="skill">
+            <div class="symbol">↔</div>
+            <h3>Responsive</h3>
+            <p>Мутобиқ ба телефон</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="eyebrow">Портфолио</div>
+        <h2 class="section-title">
+          Лоиҳаҳои <span>ман</span>
+        </h2>
+
+        <p class="muted">
+          Инҳо идеяҳои лоиҳаҳои машқӣ мебошанд.
+          Вақте онҳоро месозам, натиҷаи воқеиро дар ин ҷо мегузорам.
+        </p>
+
+        <div class="projects-grid">
+
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80"
+              alt="Интерйери қаҳвахона"
+              loading="lazy">
+
+            <div class="project-info">
+              <h3>Сайти қаҳвахона</h3>
+              <p>
+                Намунаи сайт барои қаҳвахона бо меню
+                ва маълумоти тамос.
+              </p>
+              <span class="project-label">HTML · CSS</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+              alt="Компютер барои барномасозӣ"
+              loading="lazy">
+
+            <div class="project-info">
+              <h3>Портфолиои шахсӣ</h3>
+              <p>
+                Сомона барои муаррифии малакаҳо
+                ва корҳои барномасоз.
+              </p>
+              <span class="project-label">HTML · CSS</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+              alt="Пардохт ва хариди онлайн"
+              loading="lazy">
+
+            <div class="project-info">
+              <h3>Сайти мағоза</h3>
+              <p>
+                Намунаи саҳифа барои намоиши маҳсулот
+                ва хизматрасониҳо.
+              </p>
+              <span class="project-label">HTML · CSS · JS</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+
+          <div class="eyebrow">Дар тамос бошем</div>
+
+          <h2 class="section-title">
+            Биё, <span>ҳамкорӣ</span> кунем!
+          </h2>
+
+          <p class="muted">
+            Мехоҳӣ пешрафти маро бинӣ ё дар бораи сайтсозӣ
+            суҳбат кунӣ? Ба саҳифаи Instagram-и ман гузар.
+          </p>
+
+          <a class="btn primary"
+             href="https://instagram.com/ismoil_coderr"
+             target="_blank" rel="noopener">
+            Instagram: @ismoil_coderr ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> ismoil_coderr ·
+      Бо шавқ сохта шудааст <span>♥</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
